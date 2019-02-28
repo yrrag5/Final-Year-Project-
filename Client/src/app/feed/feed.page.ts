@@ -1,15 +1,22 @@
+import { NavController, NavParams } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
+import { FeedService } from '../feed.service';
 
 @Component({
   selector: 'app-feed',
   templateUrl: './feed.page.html',
   styleUrls: ['./feed.page.scss'],
 })
-export class FeedPage implements OnInit {
+export class FeedPage {
+  private clubs: Array<any>;
 
-  constructor() { }
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public feedService: FeedService) { }
 
-  ngOnInit() {
+  ionViewDidLoad() {
+    this.feedService.getClubs().subscribe(clubs => {
+      this.clubs = clubs;
+    })
   }
 
 }

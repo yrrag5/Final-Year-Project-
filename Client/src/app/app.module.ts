@@ -11,6 +11,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { FeedPageModule } from './feed/feed.module';
 import { PostPageModule } from './post/post.module';
 import { FeedService } from './feed.service';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +21,7 @@ import { FeedService } from './feed.service';
     BrowserModule, 
     IonicModule.forRoot(),
     AppRoutingModule,
+    HttpClientModule,
     FeedPageModule,
     PostPageModule,
   ],
