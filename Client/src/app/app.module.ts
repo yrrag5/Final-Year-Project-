@@ -7,9 +7,9 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import { HomePageModule }   from './home/home.module';
-import { FeedPageModule }   from './feed/feed.module';
-import { PostPageModule }   from './post/post.module';
+import { LoginPageModule }   from './pages/login/login.module';
+import { FeedPageModule }   from './pages/feed/feed.module';
+import { PostPageModule }   from './pages/post/post.module';
 import { FeedService }      from './feed.service';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -21,7 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
-    HomePageModule,
+    LoginPageModule,
     FeedPageModule,
     PostPageModule,
   ],
