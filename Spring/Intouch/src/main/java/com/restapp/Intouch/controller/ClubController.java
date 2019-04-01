@@ -8,17 +8,17 @@ import java.util.Collection;
 import java.util.stream.Collectors;
 
 public class ClubController {
-    private ClubRepository repo;
+   /* private ClubRepository repo;
 
     public ClubController(ClubRepository repository){
         this.repo = repo;
     }
 
-    @GetMapping("/getClubs")
+    @GetMapping("/Clubs")
     @CrossOrigin(origins = "http://localhost:4200")
     public Collection<Club> getClubs(){
         return repo.findAll().stream()
                 .collect(Collectors.toList());
 
-    }
+    }*/
 }

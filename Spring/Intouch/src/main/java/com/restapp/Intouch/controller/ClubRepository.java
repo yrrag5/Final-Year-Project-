@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 @RepositoryRestResource
 //Must be changed when on heroku
-@CrossOrigin(origins = {"http://localhost:8100","http://localhost:8080"})
-interface ClubRepository extends JpaRepository<Club, Long>{
+//@CrossOrigin(origins = {"http://localhost:8100","http://localhost:8080"})
+public interface ClubRepository //extends JpaRepository<Club, Long>
+{
 
 }
