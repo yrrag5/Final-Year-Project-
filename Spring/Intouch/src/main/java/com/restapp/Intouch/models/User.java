@@ -25,7 +25,7 @@ public class User {
 
     @Override
     public String toString() {
-        return String.format("Club{id='%s', userId='%s', userName='%s', userDOB='%s', userEmail='%s', userNumber='%s'}\n",
+        return String.format("User{id='%s', userId='%s', userName='%s', userDOB='%s', userEmail='%s', userNumber='%s'}\n",
                 id,userId, userName, userDOB, userEmail, userNumber);
     }
 }

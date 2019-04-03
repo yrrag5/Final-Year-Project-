@@ -10,12 +10,17 @@ import { FeedService } from '../../providers/feed.service';
 })
 export class FeedPage {
   private clubs: Array<any>;
+  private users: Array<any>;
   
   constructor(router : Router, public feedService : FeedService) { }
 
   IonViewDidLoad() {
     this.feedService.getLocalClubs().subscribe(clubs => {
       this.clubs = clubs;
+    })
+
+    this.feedService.getUserNames().subscribe(users=> {
+      this.users = users;
     })
   }
 

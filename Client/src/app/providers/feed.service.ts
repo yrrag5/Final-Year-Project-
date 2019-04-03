@@ -10,7 +10,12 @@ export class FeedService {
   }
 
   getLocalClubs() {
-    return this.http.get('http://localhost:8080/getClubs')
+    return this.http.get('http://localhost:8090/getAllClubs')
+    .pipe(map((response: Response) => response.json()));
+  }
+
+  getUserNames() {
+    return this.http.get('http://localhost:8090/getAllUsers')
     .pipe(map((response: Response) => response.json()));
   }
 }
