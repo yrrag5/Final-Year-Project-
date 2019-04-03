@@ -3,11 +3,13 @@ package com.restapp.Intouch.dal;
 import com.restapp.Intouch.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public class UserDalImpl implements UserDal {
-    private UserDal repo;
+   // private UserDal repo;
 
     private final MongoTemplate mongoTemplate;
     @Autowired
