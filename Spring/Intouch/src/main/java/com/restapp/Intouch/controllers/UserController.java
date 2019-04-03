@@ -19,15 +19,16 @@ public class UserController {
 
     @GetMapping("/Users")
     public List<User> getAllUsers(){
+        //return userRepo.findAll();
         Sort sortByCreatedAtDesc = new Sort(Sort.Direction.DESC, "createdAt");
         return userRepo.findAll(sortByCreatedAtDesc);
     }
 
-    @PostMapping("/Users")
+    /*@PostMapping("/Users")
     public User createUser(@Valid @RequestBody User user) {
         //user.setCompleted(false);
         return userRepo.save(user);
-    }
+    }*/
 
    /* @GetMapping(value="/Users/{id}")
     public ResponseEntity<User> getTodoById(@PathVariable("id") String id) {
@@ -48,12 +49,12 @@ public class UserController {
                 }).orElse(ResponseEntity.notFound().build());
     }*/
 
-    @DeleteMapping(value="/Users/{id}")
+    /*@DeleteMapping(value="/Users/{id}")
     public ResponseEntity<?> deleteUser(@PathVariable("id") String id) {
         return userRepo.findById(id)
                 .map(todo -> {
                     userRepo.deleteById(id);
                     return ResponseEntity.ok().build();
                 }).orElse(ResponseEntity.notFound().build());
-    }
+    }*/
 }

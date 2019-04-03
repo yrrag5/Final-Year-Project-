@@ -28,13 +28,4 @@ public class UserDalImpl implements UserDal {
     public List<User> getAllUsers() {
         return mongoTemplate.findAll(User.class);
     }
-
-
-    /*@GetMapping("/Clubs")
-    @CrossOrigin(origins = "http://localhost:4200")
-    public Collection<Club> getClubs() {
-        return repo.findAll().stream()
-                .collect(Collectors.toList());
-    }*/
-
 }

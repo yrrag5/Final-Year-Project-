@@ -15,11 +15,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class IntouchApplication implements CommandLineRunner{
 
+
 	private static final Logger LOG = LoggerFactory.getLogger("IntouchApplication");
 
 	//private final ClubDal clubDAL;
 	private final UserDal userDAL;
-	private final ClubDal clubDal;
 
 
 	/*@Autowired
@@ -29,15 +29,13 @@ public class IntouchApplication implements CommandLineRunner{
 
 
 	@Autowired
-	public IntouchApplication(ClubDal clubDal, UserDal userDal) {
+	public IntouchApplication(UserDal userDal) {
     	this.userDAL = userDal;
-    	this.clubDal = clubDal;
 	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(IntouchApplication.class, args);
 	}
-	
 	@Override
 	public void run(String... args) {
 		userDAL.saveUser(new User(  "Test", "Test", "Test", "Test", "Test"));

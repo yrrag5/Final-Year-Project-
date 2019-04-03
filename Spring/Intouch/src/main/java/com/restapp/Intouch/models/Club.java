@@ -22,7 +22,7 @@ public class Club {
 
     @Override
     public String toString() {
-        return String.format("Club{clubId='%s', clubName='%s', address=%s}\n",
+        return String.format("Clubs{clubId='%s', clubName='%s', address=%s}\n",
                 clubId,clubName, address);
     }
 }

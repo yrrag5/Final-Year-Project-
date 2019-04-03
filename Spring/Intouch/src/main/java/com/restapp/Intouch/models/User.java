@@ -1,7 +1,11 @@
 package com.restapp.Intouch.models;
 
 import org.springframework.data.annotation.Id;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection ="Users")
+@JsonIgnoreProperties(value = {"createdAt"}, allowGetters = true)
 public class User {
     @Id
     private String id;
@@ -12,7 +16,7 @@ public class User {
     private String userNumber;
 
     public User(){
-
+        super();
     }
 
     public User(String userId, String userName, String userDOB, String userEmail, String userNumber) {
@@ -23,9 +27,50 @@ public class User {
         this.userNumber = userNumber;
     }
 
+    public void setUserId(String userId) {
+
+        this.userId = userId;
+    }
+
+    public void setUserName(String userName){
+        this.userName = userName;
+    }
+
+    public void setUserDOB(String userDOB){
+        this.userDOB = userDOB;
+    }
+
+    public void setUserEmail(String userEmail){
+        this.userEmail = userEmail;
+    }
+
+    public void setUserNumber(String userNumber){
+        this.userNumber = userNumber;
+    }
+    public String getUserId(){
+        return userId;
+    }
+
+    public String getUserName(){
+        return userName;
+    }
+
+    public String getUserDOB(){
+        return userDOB;
+    }
+
+    public String getUserEmail(){
+        return userEmail;
+    }
+
+    public String getUserNumber(){
+        return userNumber;
+    }
+
+
     @Override
     public String toString() {
-        return String.format("User{id='%s', userId='%s', userName='%s', userDOB='%s', userEmail='%s', userNumber='%s'}\n",
+        return String.format("Users{id='%s', userId='%s', userName='%s', userDOB='%s', userEmail='%s', userNumber='%s'}\n",
                 id,userId, userName, userDOB, userEmail, userNumber);
     }
 }
