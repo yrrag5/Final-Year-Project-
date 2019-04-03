@@ -2,26 +2,30 @@ package com.restapp.Intouch;
 
 import com.restapp.Intouch.dal.ClubDal;
 import com.restapp.Intouch.models.Club;
+import com.restapp.Intouch.controller.ClubRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.RestController;
 
 
 @SpringBootApplication
 public class IntouchApplication implements CommandLineRunner{
 
 
-	private static final Logger LOG = LoggerFactory.getLogger("IntouchApplication");
-
+	private final ClubRepository repo;
 	private final ClubDal clubDAL;
 
 	@Autowired
-	public IntouchApplication(ClubDal clubDAL) {
+	public IntouchApplication(ClubRepository repo, ClubDal clubDAL){
 		this.clubDAL = clubDAL;
 	}
+
+	private static final Logger LOG = LoggerFactory.getLogger("IntouchApplication");
+
 	public static void main(String[] args) {
 		SpringApplication.run(IntouchApplication.class, args);
 	}

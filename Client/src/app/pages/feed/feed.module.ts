@@ -6,6 +6,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { FeedPage } from './feed.page';
+import { FeedService } from '../../providers/feed.service';
+
 
 const routes: Routes = [
   {
@@ -21,6 +23,9 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [FeedPage]
+  declarations: [FeedPage],
+  providers: [
+    FeedService
+  ]
 })
 export class FeedPageModule {}

@@ -9,6 +9,9 @@
   <ion-button expand="block" routerLink="/post" routerDirection="root">>Post something! </ion-button>
   <ion-button expand="block" routerLink="/login" routerDirection="root">>Log out </ion-button>
 
-
+  <h2>Clubs</h2>
+  <ion-item *ngFor="let club of clubs">
+    <h2>{{club.name}}</h2>
+  </ion-item> 
 
 </ion-content>
