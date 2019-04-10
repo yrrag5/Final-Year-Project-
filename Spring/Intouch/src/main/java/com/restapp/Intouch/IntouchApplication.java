@@ -38,8 +38,8 @@ public class IntouchApplication implements CommandLineRunner{
 	}
 	@Override
 	public void run(String... args) {
-		userDAL.saveUser(new User(  "Test", "Test", "Test", "Test", "Test"));
-        userDAL.saveUser(new User(  "Test", "Test", "Test", "Test", "Test"));
+		//userDAL.saveUser(new User(  "Test", "Test", "Test", "Test", "Test"));
+       // userDAL.saveUser(new User(  "Test", "Test", "Test", "Test", "Test"));
 
         LOG.info("Getting all user data from MongoDB: \n{}",
 				userDAL.getAllUsers());
