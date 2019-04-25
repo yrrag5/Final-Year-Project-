@@ -20,8 +20,9 @@ public class UserController {
     UserRepo userRepo;
 
     // Get users api
-    @GetMapping("/get")
-    @CrossOrigin(origins = "http://localhost:8090")
+    @GetMapping("/users")
+    @ResponseBody
+    @CrossOrigin(origins = "http://localhost:8200")
     public Collection<User> getAllUsers(){
         return userRepo.findAll();
         //Sort sortByCreatedAtDesc = new Sort(Sort.Direction.DESC, "createdAt");
@@ -29,42 +30,49 @@ public class UserController {
     }
 
     // Create user
-    @PostMapping("/post")
+    @PostMapping("/user")
     public User createUser(@Valid @RequestBody User user) {
         return userRepo.save(user);
     }
 
     // Get user by id
-    @GetMapping(value="/users/{id}")
-    public ResponseEntity<User> getUserById(@PathVariable("id") String id) {
-        return userRepo.findById(id)
-                .map(todo -> ResponseEntity.ok().body(todo))
+    @GetMapping(value="/user/{userId}")
+    public ResponseEntity<User> getUserById(@PathVariable("userId") String userId) {
+        return userRepo.findById(userId)
+                .map(user -> ResponseEntity.ok().body(user))
                 .orElse(ResponseEntity.notFound().build());
     }
 
+   /*// Get user by id
+    @GetMapping(value="/search/{userId}")
+    public String getUserById (@PathVariable("userId") String userId) {
+        return userRepo.findById(userId).toString();
+    }*/
+
     // Update user
-    @PutMapping(value="/users/{id}")
-    public ResponseEntity<User> updateUser(@PathVariable("id") String id,
+    @PutMapping(value="/user/{userId}")
+    public ResponseEntity<User> updateUser(@PathVariable("userId") String userId,
                                            @Valid @RequestBody User user) {
-         return userRepo.findById(id)
+         return userRepo.findById(userId)
                 .map(userData -> {
+
                     userData.setUserId(user.getUserId());
                     userData.setUserName(user.getUserName());
                     userData.setUserDOB(user.getUserDOB());
                     userData.setUserEmail(user.getUserEmail());
                     userData.setUserNumber(user.getUserNumber());
 
-                    User updatedTodo = userRepo.save(userData);
-                    return ResponseEntity.ok().body(updatedTodo);
+                    User updatedUser = userRepo.save(userData);
+                    return ResponseEntity.ok().body(updatedUser);
                 }).orElse(ResponseEntity.notFound().build());
     }
 
     // Delete user
-    @DeleteMapping(value="/users/{id}")
-    public ResponseEntity<?> deleteUser(@PathVariable("id") String id) {
-        return userRepo.findById(id)
+    @DeleteMapping(value="/user/{userId}")
+    public ResponseEntity<?> deleteUser(@PathVariable("userId") String userId) {
+        return userRepo.findById(userId)
                 .map(todo -> {
-                    userRepo.deleteById(id);
+                    userRepo.deleteById(userId);
                     return ResponseEntity.ok().build();
                 }).orElse(ResponseEntity.notFound().build());
     }

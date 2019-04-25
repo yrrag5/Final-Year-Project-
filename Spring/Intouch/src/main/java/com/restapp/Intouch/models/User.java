@@ -5,10 +5,10 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 //@Document(collection ="Users")
-@JsonIgnoreProperties(value = {"createdAt"}, allowGetters = true)
+//@JsonIgnoreProperties(value = {"createdAt"}, allowGetters = true)
 public class User {
-    @Id
     private String id;
+    @Id
     private String userId;
     private String userName;
     private String userDOB;
@@ -28,6 +28,7 @@ public class User {
     }
 
     public void setId(String id){
+
         this.id = id;
     }
 
@@ -79,6 +80,6 @@ public class User {
     @Override
     public String toString() {
         return String.format("Users{id='%s', userId='%s', userName='%s', userDOB='%s', userEmail='%s', userNumber='%s'}\n",
-                id,userId, userName, userDOB, userEmail, userNumber);
+                id, userId, userName, userDOB, userEmail, userNumber);
     }
 }
