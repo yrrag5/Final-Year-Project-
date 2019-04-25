@@ -10,16 +10,17 @@
   <ion-button expand="block" routerLink="/login" routerDirection="root">>Log out </ion-button>
 
   <h2>Clubs</h2>
-  <div *ngFor="let name of names">
-    <h2>waka waka {{name}}</h2>
-  </div> 
+  <ion-list>  
+    <ion-item *ngFor="let club of clubs">
+      <p>{{club.clubName}}</p>
+    </ion-item>
+  </ion-list>
 
   
   <h2>Users</h2>
   <ion-list>  
     <ion-item *ngFor="let user of users">
-      <h2>User ID: {{user.userId}}</h2>
-      <h2>User name: {{user.userName}}</h2>
+      <p>{{user.userName}}</p>
     </ion-item>
   </ion-list>
 
