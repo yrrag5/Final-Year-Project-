@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 //@RequestMapping("/api")
-//@CrossOrigin("*")
+@CrossOrigin(origins = {"http://localhost:8100", "file://"})
 public class UserController {
 
     @Autowired
@@ -22,7 +22,6 @@ public class UserController {
     // Get users api
     @GetMapping("/users")
     @ResponseBody
-    @CrossOrigin(origins = "http://localhost:8200")
     public Collection<User> getAllUsers(){
         return userRepo.findAll();
         //Sort sortByCreatedAtDesc = new Sort(Sort.Direction.DESC, "createdAt");

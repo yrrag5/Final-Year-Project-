@@ -13,20 +13,19 @@ export class FeedService {
   constructor(public http: HttpClient) {
   }
 
-  getLocalClubs() {
-    return this.http.get(
-      this.API + '/club'
-      );
-  }
-
-  getUsers() {
-    return this.http.get (this.API + "/get")
-      .pipe(map((users: any) => {
-          console.log("User table: ", users);
-          return users.userId;
-        }), filter((user: any) => {
-          return true;
+  getClubs(): Observable<any> {
+    return this.http.get(this.API + "/clubs")
+      .pipe(map((clubs: any) => {
+          console.log("Club table: ", clubs);
         })
       ); 
+  }
+
+  getUsers(): Observable<any> {
+    return this.http.get(this.API + "/users")
+     .pipe(map((users: any) => {
+        console.log("User table: ", users);
+      })
+    );  
   }
 }

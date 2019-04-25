@@ -6,6 +6,7 @@ import { FeedService } from '../../providers/feed.service';
   selector: 'app-feed',
   templateUrl: './feed.page.html',
   styleUrls: ['./feed.page.scss'],
+  providers: [FeedService]
 })
 
 export class FeedPage implements OnInit {
@@ -17,19 +18,19 @@ export class FeedPage implements OnInit {
 
 ngOnInit() {
   
-  this.feedService.getUsers().subscribe(users => {
-    console.log("user names: ");
-    console.log(users);
+  this.feedService.getUsers()
+    .subscribe((data) => {
+      this.users = data; 
+      console.log("user names: ");
+      console.log(this.users);
+  })
+
+  this.feedService.getClubs().subscribe(data => {
+    this.clubs = data;
+    console.log("Club names: ");
+    console.log(this.clubs);
   })
 }
 
-/*
-  IonViewDidLoad() {
-    this.feedService.getUserNames().subscribe(users => this.users = users);
-
-    console.log("before mapping ", this.users);
-
-    this.names = ["hugh", "garry", "darragh"];
-  }*/
 
 }
