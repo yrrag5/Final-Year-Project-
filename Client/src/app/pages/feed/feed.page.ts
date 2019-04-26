@@ -3,21 +3,22 @@ import { Router } from '@angular/router';
 import { FeedService } from '../../providers/feed.service';
 import { ClubService } from '../../providers/club.service';
 
-
 @Component({
   selector: 'app-feed',
   templateUrl: './feed.page.html',
   styleUrls: ['./feed.page.scss'],
-  providers: [FeedService]
+  providers: [FeedService, ClubService]
 })
 
 export class FeedPage implements OnInit {
   private clubs: Array<any>;
   private users: Array<any>;
-  names : Array<string>;
 
-  constructor(router : Router, public feedService : FeedService, clubService : ClubService) { }
+  // Called first.
+  constructor(router : Router, public feedService : FeedService, 
+    public clubService : ClubService) { }
 
+  // Called after the constructor 
   ngOnInit() {
     
     this.feedService.getUsers()
@@ -27,10 +28,11 @@ export class FeedPage implements OnInit {
         console.log(this.users);
     })
 
-    this.feedService.getClubs().subscribe(data => {
-      this.clubs = data;
-      console.log("Club names: ");
-      console.log(this.clubs);
+    this.clubService.getClubs()
+      .subscribe(data => {
+        this.clubs = data;
+        console.log("Club names: ");
+        console.log(this.clubs);
     })
   
   }

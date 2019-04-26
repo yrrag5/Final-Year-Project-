@@ -6,14 +6,13 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-
 import { LoginPageModule }  from './pages/login/login.module';
 import { FeedPageModule }   from './pages/feed/feed.module';
 import { PostPageModule }   from './pages/post/post.module';
 import { FeedService }      from './providers/feed.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ClubService } from './providers/club.service';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -27,6 +26,8 @@ import { ClubService } from './providers/club.service';
     LoginPageModule,
     FeedPageModule,
     PostPageModule,
+    FormsModule, 
+    ReactiveFormsModule
   ],
   providers: [
     FeedService,

@@ -5,9 +5,14 @@
 </ion-header>
 
 <ion-content padding>
-
-  <ion-button expand="block" routerLink="/post" routerDirection="root">>Post something! </ion-button>
-  <ion-button expand="block" routerLink="/login" routerDirection="root">>Log out </ion-button>
+ 
+  <h2>Users</h2>
+  <!-- Loop through the data and print club name to demonstrate data being accessed. -->
+  <ion-list>  
+    <ion-item *ngFor="let user of users">
+      <p>{{user.userName}}</p>
+    </ion-item>
+  </ion-list>
 
   <h2>Clubs</h2>
   <ion-list>  
@@ -16,11 +21,9 @@
     </ion-item>
   </ion-list>
   
-  <h2>Users</h2>
-  <ion-list>  
-    <ion-item *ngFor="let user of users">
-      <p>{{user.userName}}</p>
-    </ion-item>
-  </ion-list>
+ 
+
+  <ion-button expand="block" routerLink="/post" routerDirection="root">>Post something! </ion-button>
+  <ion-button expand="block" routerLink="/login" routerDirection="root">>Log out </ion-button>
 
 </ion-content>
