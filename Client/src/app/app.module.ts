@@ -12,6 +12,7 @@ import { FeedPageModule }   from './pages/feed/feed.module';
 import { PostPageModule }   from './pages/post/post.module';
 import { FeedService }      from './providers/feed.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ClubService } from './providers/club.service';
 
 
 
@@ -29,6 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   providers: [
     FeedService,
+    ClubService,
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

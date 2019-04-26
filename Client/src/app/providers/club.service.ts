@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 
 
 @Injectable()
-export class FeedService {
+export class ClubService {
 
   public API = 'http://localhost:8080';
 
@@ -23,17 +23,6 @@ export class FeedService {
       ); 
   }
 
-  getUsers(): Observable<any> {
-    return this.http.get(this.API + "/users")
-        .pipe(map((users: any) => {
-            console.log("User table: ", users);
-            return users;
-        }, error => {
-          console.log(error);
-        })
-     );  
-  }
-
   postClubs(formData: FormData) {
     
     this.http.post(this.API + "/clubs", formData)
@@ -44,7 +33,4 @@ export class FeedService {
       });
   }
 
-  postUsers(formData: FormData) {
-
-  }
 }

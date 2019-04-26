@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FeedService } from '../../providers/feed.service';
+
 
 @Component({
   selector: 'app-post',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostPage implements OnInit {
 
-  constructor() { }
+  constructor(router : Router, public feedService : FeedService) { }
+
+  sendPostRequest() {
+    let postData = { 
+      
+    }
+  }
 
   ngOnInit() {
+
   }
 
 }

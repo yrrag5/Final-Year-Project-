@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FeedService } from '../../providers/feed.service';
+import { ClubService } from '../../providers/club.service';
+
 
 @Component({
   selector: 'app-feed',
@@ -14,23 +16,23 @@ export class FeedPage implements OnInit {
   private users: Array<any>;
   names : Array<string>;
 
-  constructor(router : Router, public feedService : FeedService) { }
+  constructor(router : Router, public feedService : FeedService, clubService : ClubService) { }
 
-ngOnInit() {
+  ngOnInit() {
+    
+    this.feedService.getUsers()
+      .subscribe((data) => {
+        this.users = data;
+        console.log("user names: ");
+        console.log(this.users);
+    })
+
+    this.feedService.getClubs().subscribe(data => {
+      this.clubs = data;
+      console.log("Club names: ");
+      console.log(this.clubs);
+    })
   
-  this.feedService.getUsers()
-    .subscribe((data) => {
-      this.users = data; 
-      console.log("user names: ");
-      console.log(this.users);
-  })
-
-  this.feedService.getClubs().subscribe(data => {
-    this.clubs = data;
-    console.log("Club names: ");
-    console.log(this.clubs);
-  })
-}
-
+  }
 
 }
